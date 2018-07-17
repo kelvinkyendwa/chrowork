@@ -26,7 +26,7 @@
   <tbody>
      
           <tr>
-            <td>{{$time->project['project']}}</td>
+            <td>{{$time->project['project'] }}</td>
             <td>{{$time->description}}</td>
             <td>{{$time->date}}</td>
            
@@ -35,7 +35,7 @@
             <td>No action needed</td>
           @else
            <td class="text-warning"><strong>Pending</strong> </td>
-           <td><a href="{{$time->id}}/edit" class="btn btn-warning">Update</a> - <a href="{{ route ('delete_timesheet')/$time->id }}" class="btn btn-danger">Delete</a></td>
+           <td><a href="{{$time->id}}/edit" class="btn btn-warning">Update</a> - <a href="{{$time->id}}/delete" class="btn btn-danger">Delete</a></td>
           @endif
             
           </tr>

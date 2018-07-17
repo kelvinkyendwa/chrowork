@@ -14,7 +14,7 @@ class OvertimeController extends Controller
      */
     public function index()
     {
-        //
+       return "hello";
     }
 
     /**

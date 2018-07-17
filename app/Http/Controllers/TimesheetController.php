@@ -61,7 +61,7 @@ class TimesheetController extends Controller
      * @param  \App\Timesheet  $timesheets
      * @return \Illuminate\Http\Response
      */
-    public function show(Timesheet $id)
+    public function show($id)
     {
         $user = User::find(auth()->id());
         $time = Timesheet::find($id);
@@ -116,8 +116,8 @@ class TimesheetController extends Controller
     public function destroy($id)
     {
         $time = Timesheet::find($id);
-        $time->delete();
+        DB::delete($time);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Entry Deleted successfully');
     }
 }
