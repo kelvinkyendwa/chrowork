@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea4456209c89a8b8f97854ff351cf71d",
+    "content-hash": "617ae5bba9ad09fec8c88841b0b37b27",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -671,6 +671,52 @@
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "https://laravelcollective.com",
             "time": "2018-03-24T00:39:21+00:00"
+        },
+        {
+            "name": "laravelnews/laravel-twbs4",
+            "version": "1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelnews/laravel-twbs4.git",
+                "reference": "581c76b611be3e31b1516fa84a54a20e6883aeea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelnews/laravel-twbs4/zipball/581c76b611be3e31b1516fa84a54a20e6883aeea",
+                "reference": "581c76b611be3e31b1516fa84a54a20e6883aeea",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "LaravelNews\\Presets\\BootstrapFour\\BootstrapPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelNews\\Presets\\BootstrapFour\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Redmond",
+                    "email": "paulrredmond@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 frontend preset for Twitter Bootstrap 4",
+            "time": "2018-02-09T15:56:24+00:00"
         },
         {
             "name": "league/flysystem",
