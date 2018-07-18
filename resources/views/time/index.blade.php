@@ -1,5 +1,8 @@
 @extends ('layouts.app')
 @section('content')
+@if (Session::has('message'))
+   <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
 <div class="container">
 <div class="row">
 	<div style="z-index: 3; background-color: #2980b9; color: white; padding: 30px; width: 260px; position: absolute; right:  0;" class="animated slideInRight">

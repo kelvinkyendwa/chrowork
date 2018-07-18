@@ -116,8 +116,11 @@ class TimesheetController extends Controller
     public function destroy($id)
     {
         $time = Timesheet::find($id);
-        DB::delete($time);
+        if ($time->delete()) {
+            return redirect('time/all')
+            ->with('message', 'Entry Deleted successfully');
+        }
 
-        return redirect()->back()->with('message', 'Entry Deleted successfully');
+        return back()->with('message', 'Entry not Deleted ');
     }
 }

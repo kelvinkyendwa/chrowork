@@ -35,7 +35,13 @@
             <td>No action needed</td>
           @else
            <td class="text-warning"><strong>Pending</strong> </td>
-           <td><a href="{{$time->id}}/edit" class="btn btn-warning">Update</a> - <a href="{{$time->id}}/delete" class="btn btn-danger">Delete</a></td>
+           <td><a href="{{$time->id}}/edit" class="btn btn-warning">Update</a> - 
+            <form method="delete" action="/time/{{$time->id}}">
+            
+              {{ csrf_field() }}
+              <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+           </td>
           @endif
             
           </tr>
