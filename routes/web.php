@@ -26,6 +26,6 @@ Route::get('/time/all', 'TimesheetController@view_all')->name('all_timesheets');
 
 Route::resource('time', 'TimesheetController');
 
-Route::delete('/time/{id}/delete', 'TimesheetController@destroy')->name('delete_timesheet');
+Route::delete('/time/{id}', 'TimesheetController@destroy');
 
 Route::resource('over', 'overtimeController');

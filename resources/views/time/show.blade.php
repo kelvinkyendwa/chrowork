@@ -36,10 +36,9 @@
           @else
            <td class="text-warning"><strong>Pending</strong> </td>
            <td><a href="{{$time->id}}/edit" class="btn btn-warning">Update</a> - 
-            <form method="delete" action="/time/{{$time->id}}">
-            
+            <form action="{{ url('/time', ['id' => $time->id]) }}" method="post">
+              <input type="hidden" name="_method" value="delete" />
               {{ csrf_field() }}
-              <button class="btn btn-danger" type="submit">Delete</button>
             </form>
            </td>
           @endif

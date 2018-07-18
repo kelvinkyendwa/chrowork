@@ -31,12 +31,14 @@ class User extends Authenticatable
 
     public function timesheets()
     {
-         return $this->hasMany(Timesheet::class);
+        return $this->hasMany(Timesheet::class);
     }
+
     public function post_timesheet(Timesheet $timesheet)
     {
         $this->timesheets()->save($timesheet);
     }
+
     public function update_timesheet(Timesheet $timesheet)
     {
         $this->timesheets()->save($timesheet);
@@ -47,10 +49,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Overtime::class);
     }
+
     public function post_overtime(Overtime $overtime)
     {
         $this->overtimes()->save($overtime);
     }
+
     public function update_overtime(Overtime $overtime)
     {
         $this->overtimes()->save($overtime);
