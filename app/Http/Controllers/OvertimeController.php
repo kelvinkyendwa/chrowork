@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Overtime;
+use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 
 class OvertimeController extends Controller
@@ -12,19 +14,30 @@ class OvertimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-       return "hello";
+        $this->middleware('auth')->except(['index']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index()
+    {
+        $user = User::find(auth()->id());
+
+        return view('overtime.index', compact('user'));
+    }
+
+    public function view_all()
+    {
+        $user = User::find(auth()->id());
+
+        return view('overtime/view_all', compact('user'));
+    }
+
     public function create()
     {
-        //
+        $list = Project::get()->all();
+
+        return view('overtime.create')->with('list', $list);
     }
 
     /**
@@ -35,7 +48,21 @@ class OvertimeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate inputs
+        $this->validate(request(), [
+            'project_id' => 'required',
+            'date' => 'required',
+            'hours' => 'required',
+            'description' => 'required',
+        ]);
+
+        //insert into database
+
+        auth()->user()->post_overtime(
+            new Overtime(request(['project_id', 'date', 'hours', 'description']))
+        );
+
+        return redirect('over/show');
     }
 
     /**
@@ -46,7 +73,9 @@ class OvertimeController extends Controller
      */
     public function show(Overtime $overtime)
     {
-        //
+        $user = User::find(auth()->id());
+
+        return view('overtime.show', compact('user'));
     }
 
     /**
@@ -57,7 +86,9 @@ class OvertimeController extends Controller
      */
     public function edit(Overtime $overtime)
     {
-        //
+        $list = Project::get()->all();
+
+        return view('overtime.edit', compact('overtime'))->with('list', $list);
     }
 
     /**
@@ -69,7 +100,19 @@ class OvertimeController extends Controller
      */
     public function update(Request $request, Overtime $overtime)
     {
-        //
+        $over = Overtime::find($id);
+
+        //insert into database
+
+        $over->project_id = $request->project_id;
+        $over->user_id = auth()->user()->id;
+        $over->date = $request->date;
+        $over->hours = $request->hours;
+        $over->description = $request->description;
+        $over->save();
+
+        return redirect('over/all')->with('message', 'Entry updated successfully');
+        ;
     }
 
     /**
