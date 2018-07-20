@@ -11,15 +11,14 @@
     <title>Chrowork</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
-   <link rel="stylesheet" href="{{ asset('mobirise/css/style.css') }}">
+    
+    <link rel="stylesheet" href="{{ asset('mobirise/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('mobirise/css/mbr-additional.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}" type="text/css">
       
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-</head>
+  </head>
 <body>
 <div id="app">
         @guest
