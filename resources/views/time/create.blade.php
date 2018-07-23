@@ -20,7 +20,7 @@
 
 	</div>
 	<div class="col-md-6">
-		<div id="submit"></div>
+		<!-- <div id="submit"></div> -- >
 	</div>
 </div>
 @endsection
