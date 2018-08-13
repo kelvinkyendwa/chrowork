@@ -71,11 +71,12 @@ class OvertimeController extends Controller
      * @param  \App\Overtime  $overtime
      * @return \Illuminate\Http\Response
      */
-    public function show(Overtime $overtime)
+    public function show($id)
     {
         $user = User::find(auth()->id());
+        $overtime = $user->overtimes->find($id);
 
-        return view('overtime.show', compact('user'));
+        return view('overtime.show', compact('overtime'));
     }
 
     /**

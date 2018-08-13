@@ -64,7 +64,7 @@ class TimesheetController extends Controller
     public function show($id)
     {
         $user = User::find(auth()->id());
-        $time = Timesheet::find($id);
+        $time = $user->timesheets->find($id);
 
         return view('time/show', compact('time'));
     }

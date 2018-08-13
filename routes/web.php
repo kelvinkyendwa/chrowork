@@ -28,9 +28,9 @@ Route::resource('/time', 'TimesheetController');
 
 Route::delete('/time/{id}', 'TimesheetController@destroy');
 
-Route::resource('over', 'OvertimeController');
-
 Route::get('/over/all', 'OvertimeController@view_all')->name('all_overtimes');
+
+Route::resource('/over', 'OvertimeController');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

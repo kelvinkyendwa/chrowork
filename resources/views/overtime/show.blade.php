@@ -6,52 +6,57 @@
   <hr>
  
   <table class="table table-dark">
-    <thead>
-      <tr>
-       
-        <th scope="col">Project Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Date</th>
-        <th scope="col">Hours</th>
-        <th scope="col">Edit</th>
-      </tr>
-    </thead>
-   
-    <tbody>
-      @foreach($user->overtimes as $overtime)
-      <tr>
+  <thead>
+    <tr>
+      
+      <th scope="col">Project Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
 
-        
-        <td>{{$overtime->project['project']}}</td>
-        <td>{{$overtime->description}}</td>
-        <td>{{$overtime->date}}</td>
-        <td>{{$overtime->hours}}</td>
-        
-        @if($overtime->isAuthorised())
-        <td class="success">Authorised</td>
-        @else
-        <td class="warning">Pending</td>
-        @endif
-        <td><a href="{{$overtime->id}}/edit" class="btn btn-warning">Edit</a></td>
-      </tr>
-       @endforeach
-    </tbody>
-   
-  </table>
+    </tr>
+  </thead>
 
 
-  <p>Go back to previous pages</p>
+  <tbody>
+     
+          <tr>
+            <td>{{$overtime->project['project'] }}</td>
+            <td>{{$overtime->description}}</td>
+            <td>{{$overtime->date}}</td>
+           
+           @if($overtime->isAuthorised())
+            <td class="text-success"><strong>Authorised</strong> </td>
+            <td>No action needed</td>
+          @else
+           <td class="text-warning"><strong>Pending</strong> </td>
+           <td><a href="{{$overtime->id}}/edit" class="btn btn-warning">Update</a> - 
+            <form action="{{ url('/over', ['id' => $overtime->id]) }}" method="post">
+              <input type="hidden" name="_method" value="delete" />
+              {{ csrf_field() }}
+            </form>
+           </td>
+          @endif
+            
+          </tr>
+  
+  </tbody>
+
+	
+	</table>
+    <p>Go back to previous pages</p>
 <ul class="nav nav-pills">
       <li class="nav-item">
         <a class="nav-link" href="{{ url('over/create') }}">Fill</a>
       </li>
        <li class="nav-item"> <a class="nav-link">/</a></li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('over') }}">Home</a>
+        <a class="nav-link" href="{{ url('time') }}">Home</a>
       </li>
           
     
 </ul>
-      
-    </div>
-    @endsection
+</div>
+
+@endsection

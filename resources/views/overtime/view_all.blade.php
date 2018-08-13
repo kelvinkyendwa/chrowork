@@ -7,7 +7,7 @@
 
 
 <div class="container">
-	<h3>Timesheet Entries</h3>
+	<h3>Overtimes Entries</h3>
   <hr>
 	<table class="table table-dark">
   <thead>
@@ -25,7 +25,7 @@
 
 
   <tbody>
-      @foreach($user->timesheets as $item)
+      @foreach($user->overtimes as $item)
           <tr>
             <td>{{$item->project['project']}}</td>
             <td>{{$item->description}}</td>
