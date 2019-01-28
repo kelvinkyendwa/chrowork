@@ -37,7 +37,7 @@
           @else
            <td class="text-warning"><strong>Pending</strong> </td>
            <td>
-              <form action="{{ url('/time', ['id' => $item->id]) }}" method="post">
+              <form action="{{ url('/over', ['id' => $item->id]) }}" method="post">
                 <input type="hidden" name="_method" value="delete" />
                 <button type="submit" class="btn btn-danger">Delete</button>
                 {{ csrf_field() }}
@@ -58,11 +58,11 @@
     <p>Go back to previous pages</p>
 <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('time/create') }}">Fill</a>
+        <a class="nav-link" href="{{ url('over/create') }}">Fill</a>
       </li>
        <li class="nav-item"> <a class="nav-link">/</a></li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('time') }}">Home</a>
+        <a class="nav-link" href="{{ url('over') }}">Home</a>
       </li>
           
     

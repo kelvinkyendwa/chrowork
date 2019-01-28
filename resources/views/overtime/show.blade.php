@@ -1,5 +1,9 @@
 @extends ('layouts.app')
 @section('content')
+@if (Session::has('message'))
+   <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
 <div class="container">
  
   <h3>All Overtime Entries</h3>

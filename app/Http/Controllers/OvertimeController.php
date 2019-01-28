@@ -122,8 +122,12 @@ class OvertimeController extends Controller
      * @param  \App\Overtime  $overtime
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Overtime $overtime)
+    public function destroy($id)
     {
-        //
+        $over = Overtime::find($id);
+
+        $over->delete();
+
+        return redirect('over/all')->with('message', 'Overtime Deleted successfully');
     }
 }
