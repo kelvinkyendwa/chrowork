@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-        TCG\Voyager\VoyagerServiceProvider::class,
+        
         /*
          * Application Service Providers...
          */
